@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Food Delivery</title>
+        <link rel = "stylesheet" href="style.css">
+        <script>
+            function placeOrder(){
+                document.getElementById("bill").style.display = "block";
+                document.getElementById("order").style.display = "none";
+
+                var cname = document.getElementById("cname");
+                var mob = document.getElementById("Mob");
+                var burger = document.getElementById("burger");
+                var roll = document.getElementById("Roll");
+                var pepsi = document.getElementById("pepsi");
+                var fries = document.getElementById("fries");
+
+                var mealCost = 0;
+                var addonCost = 0;
+                var mealName = " ";
+                var addonName = " ";
+                var total = 0;
+                var flag = 0;
+
+                if(burger.checked)
+                {
+                    mealCost = 120;
+                    mealName = "Burger";
+                    flag = 1;
+                }
+                if(roll.checked)
+                {
+                    mealCost += 80;
+                    if(flag == 1)
+                        mealName += ', '
+                    mealName += "Roll";
+                }
+                flag = 0;
+                if(pepsi.checked)
+                {
+                    addonCost = 30;
+                    addonName = "Pepsi";
+                    flag = 1;
+                }
+                if(fries.checked)
+                {
+                    addonCost += 60;
+                    if(flag == 1)
+                        addonName += ', '
+                    addonName += "French Fries";
+                }
+                total = mealCost + addonCost;
+
+                document.getElementById("lblName").innerHTML = cname.value;
+                document.getElementById("lblMob").innerHTML = mob.value;
+                document.getElementById("lblMeal").innerHTML = mealName;
+                document.getElementById("lblAddon").innerHTML = addonName;
+                document.getElementById("lblTotal").innerHTML = total;
+            }
+        </script>
+    </head>
+    <body>
+        <h1 id="topic">Welcome to Food Delivery Service</h1>
+        <div id = "order" align="center">
+            <table border="2px solid black" style="width: 70%;">
+                <tr>
+                    <th colspan="2">Customer Details</th>
+                </tr>
+                <tr>
+                    <td>Customer Name</td>
+                    <td><input type = 'text' id = "cname"></td>
+                </tr>
+                <tr>
+                    <td>Mobile Number</td>
+                    <td><input type = 'text' id = "Mob"></td>
+                </tr>
+                <tr>
+                    <th colspan="2">Select a Meal</th>
+                </tr>
+                <tr>
+                    <td>
+                        <img src = "burger.jpg" width="80%"><br>
+                        <input type="checkbox" id = "burger"><br>
+                        Burger(Rs.120/-)
+                    </td>
+                    <td>
+                        <img src = "Roll.jpg" width="90%"><br>
+                        <input type="checkbox" id = "Roll"><br>
+                        Rolls(Rs.80/-)
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2">Select Add-On</th>
+                </tr>
+                <tr>
+                    <td>
+                        <img src = "Pepsi.jpg" width="90%"><br>
+                        <input type="checkbox" id = "pepsi"><br>
+                        Pepsi(Rs.30/-)
+                    </td>
+                    <td>
+                        <img src = "ff.gif" width="70%"><br>
+                        <input type="checkbox" id = "fries"><br>
+                        French Fries(Rs.60/-)
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <input type="button" id = "btn" value="Place Order" onclick="placeOrder()">
+        </div>
+        <br>
+        <div id = "bill" style = "display: none;">
+            <dl>
+                <h2>Order Summary</h2>
+                <dt>Customer Name :</dt>
+                <dd id = "lblName"></dd>
+                <dt>Customer Mobile Number :</dt>
+                <dd id = "lblMob"></dd>
+                <dt>Selected Meal :</dt>
+                <dd id = "lblMeal"></dd>
+                <dt>Selected Add-On :</dt>
+                <dd id = "lblAddon"></dd>
+                <dt>Total Amount to be Paid :</dt>
+                <dd id = "lblTotal"></dd>
+            </dl>
+            <input type = "button" id = "print" value = "Print Bill" onclick = "window.print()" style="background-color: gray; color: white">
+        </div>
+    </body>
+</html>

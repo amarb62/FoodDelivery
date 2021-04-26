@@ -1,0 +1,43 @@
+#topic{
+    text-align: center;
+    color: orangered;
+    border-style: dotted;
+    border-color: green;
+    border-width: 2px;
+}
+body{
+    background-color: khaki;
+}
+tr{
+    background-color: maroon;
+    color: white;
+    font-style: initial;
+    text-align: center;
+    height: 30pt;
+    font-size: 16pt;
+}
+th{
+    font-size: 20pt;
+}
+td{
+    width: 50%;
+}
+#btn{
+    width: 180px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: palegreen;
+    border-radius: 10px;
+}
+dt{
+    color: white;
+    background-color: maroon;
+    font-weight: bold;
+    width: 30%;
+    height: 24pt;
+}
+dd{
+    height: 24pt;
+    width: 20%;
+}
